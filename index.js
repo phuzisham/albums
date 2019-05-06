@@ -6,11 +6,18 @@ import AlbumList from './src/components/AlbumsList';
 
 // Create component
 const App = () => (
-    <View>
+    <View style={styles.windowStyle}>
         <Header headerText={'Albums!!!'} />
         <AlbumList />
     </View>
 );
+
+const styles = {
+    windowStyle: {
+        backgroundColor: '#DBDBDB',
+        flex: 1
+    }
+};
 
 // Render to device
 AppRegistry.registerComponent('albums', () => App);
