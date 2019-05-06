@@ -1,8 +1,6 @@
-// import libraries for component
 import React from 'react';
 import { Text, View } from 'react-native';
 
-// make component
 const Header = (props) => {
     const { textStyle, viewStyle } = styles;
 
@@ -13,7 +11,6 @@ const Header = (props) => {
     );
 };
 
-// styling
 const styles = {
     viewStyle: {
         backgroundColor: '#570000',
@@ -30,5 +27,4 @@ const styles = {
     }
 };
 
-// make component available for other parts of app
 export default Header;
