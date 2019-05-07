@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 class SearchBar extends Component {
     state = { text: '' };
@@ -16,12 +16,11 @@ class SearchBar extends Component {
 
     render() {
         const { text } = this.state;
-        const { containerStyle, inputStyle } = styles;
 
         return (
         <View>
             <TextInput
-            style={inputStyle}
+            style={styles.inputStyle}
             value={text}
             placeholder="Search here..."
             onChangeText={newText => this.handleChangeText(newText)}
