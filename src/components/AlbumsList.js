@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import axios from 'axios';
 import AlbumDetail from './AlbumDetail';
+import searchMock from '../api/SearchMock';
 
 class AlbumList extends Component {
-    state = { albums: [] };
+    state = { songs: [] };
 
-    componentWillMount() {
-        axios.get('https://rallycoding.herokuapp.com/api/music_albums')
-            .then(response => this.setState({ albums: response.data }));
+    async componentDidMount() {
+        const newSongs = await searchMock({
+            offset: 0,
+            limit: 100,
+            q: 'Shpongle',
+        });
+    
+        this.setState({
+            songs: newSongs,
+        });
     }
 
-    renderAlbums() {
-        return this.state.albums.map(album => <AlbumDetail key={album.title} album={album} />);
+    renderSongs() {
+        return this.state.songs.map(song => <AlbumDetail key={song.id} song={song} />);
     }
 
     render() {
         return (
             <ScrollView>
-                {this.renderAlbums()}
+                {this.renderSongs()}
             </ScrollView>
         );
     }

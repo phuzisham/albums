@@ -4,8 +4,9 @@ import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
 
-const AlbumDetail = ({ album }) => {
-    const { title, artist, thumbnail_image, image, url } = album;
+const AlbumDetail = ({ song }) => {
+    console.log({ song });
+    const { id, imageUri, title } = song;
     const { 
         thumbnialStyle, 
         headerContentStyle, 
@@ -19,19 +20,18 @@ const AlbumDetail = ({ album }) => {
                 <View style={thumbnailContainerStyle}>
                     <Image 
                         style={thumbnialStyle}
-                        source={{ uri: thumbnail_image }} 
+                        source={{ uri: imageUri }} 
                     />
                 </View>
                 <View style={headerContentStyle}>
                     <Text style={headerTextStyle}>{title}</Text>
-                    <Text>{artist}</Text>
                 </View>
             </CardSection>
             <CardSection>
-                <Image style={imageStyle} source={{ uri: image }} />
+                <Image style={imageStyle} source={{ uri: imageUri }} />
             </CardSection>
             <CardSection>
-                <Button onPress={() => Linking.openURL(url)}>
+                <Button onPress={() => Linking.openURL('www.spotify.com')}>
                     <Text>Buy Now!</Text>
                 </Button>
             </CardSection>
