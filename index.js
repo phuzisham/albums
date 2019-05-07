@@ -4,10 +4,15 @@ import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumsList';
 import SearchBar from './src/components/SearchBar';
 
+const handleSearchChange = (text) => {
+    console.log('search text is', text);
+};
+
 const App = () => (
+
     <View style={styles.windowStyle}>
         <Header headerText={'Albums!!!'} />
-        <SearchBar />
+        <SearchBar onChange={text => handleSearchChange(text)} />
         <AlbumList />
     </View>
 );
