@@ -8,14 +8,30 @@ import {
 export default class Seacrh extends Component {
   constructor() {
     super();
+
+    this.state = {
+        text: '',
+      };
+    }
+  
+    handleChangeText(newText) {
+      this.setState({
+        text: newText,
+    });
   }
 
   render() {
+    const { text } = this.state;
     const { containerStyle, inputStyle } = styles;
 
     return (
       <View style={containerStyle}>
-        <TextInput style={inputStyle} value="Search" />
+        <TextInput
+          style={inputStyle}
+          value={text}
+          placeholder="Search here..."
+          onChangeText={newText => this.handleChangeText(newText)}
+        />
       </View>
     );
   }
